@@ -52,7 +52,12 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+  if(numCols == 0){ return; }
+  numCols--;
+  let rows = document.querySelectorAll("#row");
+  rows.forEach( r => {
+    r.lastElementChild.remove();
+  })
 }
 
 // Set global variable for selected color
