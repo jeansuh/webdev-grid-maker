@@ -21,7 +21,6 @@ function addR() {
     column.id = "column"
     row.appendChild(column)
   }
-  console.log("added R" + numRows + numCols);
 }
 
 // Add a column
@@ -42,12 +41,13 @@ function addC() {
     });
     r.appendChild(column);
   })
-console.log("added C" + numRows + numCols);
 }
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+  if(numRows == 0){ return; }
+  numRows--;
+  grid.lastElementChild.remove();
 }
 
 // Remove a column
