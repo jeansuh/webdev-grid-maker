@@ -5,12 +5,44 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    numRows++;
+  if(numCols == 0){
+    numCols++;
+  }
+  row = document.createElement("div");
+  row.id = "row"
+  grid.appendChild(row); // Replace this line with your code.
+  console.log(numCols);
+  for(let i = 0; i < numCols; i++){
+    column = document.createElement("div");
+    column.addEventListener('click', function(){
+        this.style.backgroundColor = colorSelected;
+    });
+    column.id = "column"
+    row.appendChild(column)
+  }
+  console.log("added R" + numRows + numCols);
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+  numCols++;
+  if(numRows == 0){
+    addR();
+    return;
+  }
+  rows = document.querySelectorAll("#row");
+  rows.forEach( r => {
+    console.log(r)
+    column = document.createElement("div");
+    column.setAttribute("onclick","clickHandler()");
+    column.id = "column"
+    column.addEventListener('click', function(){
+        this.style.backgroundColor = colorSelected;
+    });
+    r.appendChild(column);
+  })
+console.log("added C" + numRows + numCols);
 }
 
 // Remove a row

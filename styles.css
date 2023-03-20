@@ -1,9 +1,15 @@
-tr,td{
-    border:1px;
-    border-style: solid;
+#grid{
+  width : 100%;
 }
-td{
-    height: 50px;
-    width: 50px;
-    background-color: white;
+
+#column{
+  border : 1px black solid;
+  margin : 5px;
+  width: 100px;
+  height: 80px;
+  background-color: white;
+}
+
+#row{
+  display:flex;
 }
