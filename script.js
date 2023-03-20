@@ -66,17 +66,34 @@ function selectColor(){
     console.log(colorSelected);
 }
 
+
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    white = 'rgb(255, 255, 255)';
+    columns = document.querySelectorAll("#column");
+    columns.forEach( c => {
+        let currentColor = window.getComputedStyle(c, null).backgroundColor;
+        console.log(currentColor);
+        if(currentColor === white){
+            c.style.backgroundColor = colorSelected;
+        }
+    })
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    columns = document.querySelectorAll("#column");
+    columns.forEach( c => {
+      c.style.backgroundColor = colorSelected;
+    })
+
 }
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    white = 'rgb(255, 255, 255)';
+    columns = document.querySelectorAll("#column");
+    columns.forEach( c => {
+        c.style.backgroundColor = white;
+    })
 }
