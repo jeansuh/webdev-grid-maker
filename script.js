@@ -21,6 +21,7 @@ function addR() {
     column.id = "column"
     row.appendChild(column) //append to row
   }
+  console.log("after addR " + numRows + " " + numCols);
 }
 
 // Add a column
@@ -40,23 +41,33 @@ function addC() {
     });
     r.appendChild(column);
   })
+  console.log("after addC " + numRows + " " + numCols);
 }
 
 // Remove a row
 function removeR() {
-  if(numRows == 0){ return; }
+  if(numRows === 0){ return; }
   numRows--;
   grid.lastElementChild.remove(); //remove the last row and its children
+  if(numRows === 0) {
+    numCols = 0;
+  }
 }
 
 // Remove a column
 function removeC() {
-  if(numCols == 0){ return; } //for each row, remove one column
+  if(numCols === 0){ return; } //for each row, remove one column
   numCols--;
   let rows = document.querySelectorAll("#row");
   rows.forEach( r => {
     r.lastElementChild.remove();
   })
+  if(numCols === 0){
+    while(grid.firstChild){
+        grid.removeChild(grid.firstChild);
+    }
+  }
+  console.log("after removeC " + numRows + " " + numCols);
 }
 
 // Set global variable for selected color
